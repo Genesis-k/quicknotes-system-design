@@ -1,0 +1,273 @@
+/* ==========================================================
+   1. RESET & BASE STYLES
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================
+   2. HEADER & FOOTER
+   ========================================================== */
+header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 2.25rem 1rem 1.75rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+header .tagline {
+  font-size: 0.95rem;
+  color: #dbeafe;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+/* ==========================================================
+   3. LAYOUT & CARDS
+   ========================================================== */
+main {
+  width: 100%;
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #0f172a;
+}
+
+/* ==========================================================
+   4. FORM CONTROLS
+   ========================================================== */
+#note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ==========================================================
+   5. BUTTONS & STATES
+   ========================================================== */
+button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0.65rem 1.25rem;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+#submit-btn,
+#load-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+#submit-btn:hover:not(:disabled),
+#load-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.delete-btn:hover:not(:disabled) {
+  background-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================
+   6. STATUS NOTIFICATION BOXES
+   ========================================================== */
+.status-box {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  display: none;
+}
+
+.status-box.show {
+  display: block;
+}
+
+.status-loading {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.status-success {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.status-error {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ==========================================================
+   7. NOTE CARDS & LIST
+   ========================================================== */
+#notes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.note-item {
+  padding: 1rem 1.15rem;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.note-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.note-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.note-body {
+  font-size: 0.9rem;
+  color: #475569;
+  white-space: pre-wrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* ==========================================================
+   8. RESPONSIVE DESIGN
+   ========================================================== */
+@media (max-width: 600px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  #load-btn {
+    width: 100%;
+  }
+
+  .note-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+}
